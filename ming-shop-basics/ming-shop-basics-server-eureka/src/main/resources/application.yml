@@ -1,0 +1,28 @@
+server:
+  port: 8761
+
+# eureka 基本信息配置
+eureka:
+  instance:
+    # 注册到eurekaip地址
+    hostname: 127.0.0.1
+  client:
+    serviceUrl:
+    # 开启注册服务是的验证地址
+#     defaultZone: http://ming:ming@106.12.217.33:8761/eureka
+      defaultZone: http://127.0.0.1:8761/eureka
+    # 因为自己是为注册中心，不需要自己注册自己
+    register-with-eureka: false
+    # 因为自己是为注册中心，不需要检索服务
+    fetch-registry: false
+    # 健康检查--错误
+    healthcheck:
+          enabled: true
+  # System Status 的 Data center 显示信息
+  datacenter: ming-shop
+  # System Status 的 Environment 显示信息
+  environment: Test
+  server:
+    # 测试时可以关闭eureka的自我保护机制,保证不可用服务及时剔除
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 2000
