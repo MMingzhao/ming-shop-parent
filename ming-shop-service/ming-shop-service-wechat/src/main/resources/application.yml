@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: ming-shop-service-wechat
+  redis:
+      host: 106.12.217.33
+      port: 6379
+      pool:
+        max-idle: 100
+        min-idle: 1
+        max-active: 1000
+        max-wait: -1
 
 ###服务注册到eureka地址
 eureka:
@@ -29,3 +37,15 @@ wx:
         secret: 1111 #（公众号的appsecret）
         token: 111 #（接口配置里的Token值）
         aesKey: 111 #（接口配置里的EncodingAESKey值）
+
+ming:
+  weixin:
+    registration:
+       code:
+       ###微信注册码消息
+        message:  您的注册码为:%s，有效期5分钟！
+    ###默认提示消息
+    default:
+      registration:
+        code:
+          message: 您的消息，我们已经收到,会及时回复给您的!
